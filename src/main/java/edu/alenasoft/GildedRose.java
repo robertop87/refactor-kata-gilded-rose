@@ -11,7 +11,7 @@ public class GildedRose {
     items.forEach(item -> {
       UpdateStrategy strategy = getStrategy(item);
       strategy.update(item);
-      item.setSellIn(item.getSellIn()-1);
+      item.setSellIn(item.getSellIn() - 1);
     });
   }
 
