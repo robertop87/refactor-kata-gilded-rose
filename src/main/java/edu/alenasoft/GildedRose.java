@@ -5,7 +5,7 @@ import java.util.List;
 
 public class GildedRose {
 
-  private static List<Item> items = null;
+  public static List<Item> items = null;
 
   public static void main(String[] args) {
 
@@ -19,7 +19,11 @@ public class GildedRose {
     items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
     items.add(new Item("Conjured Mana Cake", 3, 6));
 
+    System.out.println("Antes de la actualizacion");
+    items.forEach(System.out::println);
     updateQuality();
+    System.out.println("Despues de la actualizacion");
+    items.forEach(System.out::println);
   }
 
   public static void updateQuality() {
@@ -28,6 +32,9 @@ public class GildedRose {
           && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
         if (items.get(i).getQuality() > 0) {
           if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName())) {
+//            if ("Conjured Mana Cake".equals(items.get(i).getName())) {
+//              items.get(i).setQuality(items.get(i).sgetQuality() - 1);
+//            }
             items.get(i).setQuality(items.get(i).getQuality() - 1);
           }
         }
