@@ -178,5 +178,42 @@ public class GildedRoseTest {
     Assert.assertEquals(0, result.getQuality());
   }
 
+  @Test
+  public void testConjuredQualityDecrease() {
+    // Add item to GildedRose [GR]
+    GildedRose.items.add(new Item("Conjured Mana Cake", 10, 6));
 
+    // Execute GR
+    GildedRose.updateQuality();
+
+    Item result = GildedRose.items.get(0);
+
+    Assert.assertEquals(4, result.getQuality());
+  }
+
+  @Test
+  public void testConjuredQualityDecrease2xWhenSellInZero() {
+    // Add item to GildedRose [GR]
+    GildedRose.items.add(new Item("Conjured Mana Cake", 0, 10));
+
+    // Execute GR
+    GildedRose.updateQuality();
+
+    Item result = GildedRose.items.get(0);
+
+    Assert.assertEquals(6, result.getQuality());
+  }
+
+  @Test
+  public void testConjuredQualityNeverNegative() {
+    // Add item to GildedRose [GR]
+    GildedRose.items.add(new Item("Conjured Mana Cake", 5, 0));
+
+    // Execute GR
+    GildedRose.updateQuality();
+
+    Item result = GildedRose.items.get(0);
+
+    Assert.assertEquals(0, result.getQuality());
+  }
 }

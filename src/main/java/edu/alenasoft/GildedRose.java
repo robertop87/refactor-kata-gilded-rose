@@ -32,9 +32,9 @@ public class GildedRose {
           && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
         if (items.get(i).getQuality() > 0) {
           if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName())) {
-//            if ("Conjured Mana Cake".equals(items.get(i).getName())) {
-//              items.get(i).setQuality(items.get(i).sgetQuality() - 1);
-//            }
+            if ("Conjured Mana Cake".equals(items.get(i).getName())) {
+              items.get(i).setQuality(items.get(i).getQuality() - 1);
+            }
             items.get(i).setQuality(items.get(i).getQuality() - 1);
           }
         }
@@ -67,6 +67,9 @@ public class GildedRose {
           if (!"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
             if (items.get(i).getQuality() > 0) {
               if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName())) {
+                if ("Conjured Mana Cake".equals(items.get(i).getName())) {
+                  items.get(i).setQuality(items.get(i).getQuality() - 1);
+                }
                 items.get(i).setQuality(items.get(i).getQuality() - 1);
               }
             }
