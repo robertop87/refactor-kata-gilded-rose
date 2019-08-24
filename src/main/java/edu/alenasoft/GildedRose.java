@@ -73,6 +73,10 @@ public class GildedRose {
           }
         }
       }
+
+      if (items.get(i).getName().equals("Conjured Mana Cake")) {
+        items.get(i).setQuality(items.get(i).getQuality() - 1);
+      }
     }
   }
 }
