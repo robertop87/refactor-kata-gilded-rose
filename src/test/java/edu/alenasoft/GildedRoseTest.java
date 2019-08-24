@@ -144,4 +144,19 @@ public class GildedRoseTest {
 
     assertEquals(expectedQuality, item.getQuality());
   }
+
+  @Test
+  public void testConjuredDecrementQuality() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 20;
+    Item item = new Item("Conjured Mana Cake", 15, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = inputQuality - 2;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
 }
