@@ -59,7 +59,7 @@ public class GildedRoseTest {
     // Contexto
     GildedRose.items = new ArrayList<>();
     int inputQuality = 80;
-    Item item = new Item("Sulfuras, Hand of Ragnaros", 0, inputQuality);
+    Item item = new Item("Sulfuras, Hand of Ragnaros", 15, inputQuality);
 
     GildedRose.items.add(item);
     GildedRose.updateQuality();
@@ -81,6 +81,66 @@ public class GildedRoseTest {
     GildedRose.updateQuality();
 
     int expectedQuality = 50;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
+
+  @Test
+  public void testbackstageIncrementsQuality() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 20;
+    Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = inputQuality + 1;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
+
+  @Test
+  public void testbackstageDoubleIncrementQuality() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 20;
+    Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = inputQuality + 2;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
+
+  @Test
+  public void testBackstageTripleIncrementQuality() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 20;
+    Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = inputQuality + 3;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
+
+  @Test
+  public void testBackstageZeroQuality() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 20;
+    Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = 0;
 
     assertEquals(expectedQuality, item.getQuality());
   }
