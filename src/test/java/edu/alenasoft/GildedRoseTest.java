@@ -38,4 +38,50 @@ public class GildedRoseTest {
     assertEquals(expectedQuality, item.getQuality());
   }
 
+
+  @Test
+  public void testNormalItemZeroQuality() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 0;
+    Item item = new Item("+5 Dexterity Vest", 0, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = 0;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
+
+  @Test
+  public void testItemSufurasLegendary() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 80;
+    Item item = new Item("Sulfuras, Hand of Ragnaros", 0, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = 80;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
+
+
+  @Test
+  public void testItemNoMayor50() {
+    // Contexto
+    GildedRose.items = new ArrayList<>();
+    int inputQuality = 50;
+    Item item = new Item("Aged Brie", 20, inputQuality);
+
+    GildedRose.items.add(item);
+    GildedRose.updateQuality();
+
+    int expectedQuality = 50;
+
+    assertEquals(expectedQuality, item.getQuality());
+  }
 }
